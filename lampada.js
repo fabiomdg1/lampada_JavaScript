@@ -12,17 +12,20 @@ btnLigaDesliga.addEventListener("click", ligaDesliga);
 function ligarLampada(){
     if(!isLampadaQuebrada()){
         lampada.src = "./img/lampadaLigada.png"
+        atualizarTextoBtnLigaDesliga()
     }    
 }
 
 function desligarLampada(){
     if(!isLampadaQuebrada()){
         lampada.src = "./img/lampadaDesligada.png";
+        atualizarTextoBtnLigaDesliga()
     }    
 }
 
 function quebrarLampada(){
     lampada.src = "./img/lampadaQuebrada.png";
+    atualizarTextoBtnLigaDesliga()
 }
 
 function isLampadaQuebrada(){
@@ -30,13 +33,22 @@ function isLampadaQuebrada(){
 }
 
 function ligaDesliga(){
-    if(!isLampadaQuebrada()){
-        if(lampada.src.indexOf("Desligada") > - 1){
-            console.log("teste");
-            ligarLampada();
-        } else {
-            console.log("teste2");
-            desligarLampada();
-        }
-    }    
+    if(lampada.src.indexOf("Desliga") > -1){
+        lampada.src = "./img/lampadaLigada.png"
+        atualizarTextoBtnLigaDesliga(); 
+    } else {
+        lampada.src = "./img/lampadaDesligada.png";
+        atualizarTextoBtnLigaDesliga(); 
+    }
+    
+}
+
+function atualizarTextoBtnLigaDesliga(){
+    if(lampada.src.indexOf("Desligada") > -1){
+        textoBtnLigaDesliga.textContent = "Liga";
+    } else if (lampada.src.indexOf("Quebrada") > -1){
+        textoBtnLigaDesliga.textContent = "Trocar Lâmpada!";
+    } else {
+        textoBtnLigaDesliga.textContent = "Desliga";
+    }
 }
