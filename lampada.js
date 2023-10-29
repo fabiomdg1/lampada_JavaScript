@@ -36,6 +36,9 @@ function ligaDesliga(){
     if(lampada.src.indexOf("Desliga") > -1){
         lampada.src = "./img/lampadaLigada.png"
         atualizarTextoBtnLigaDesliga(); 
+    } else if(lampada.src.indexOf("Quebrada") > -1){
+        trocarLampada();
+        atualizarTextoBtnLigaDesliga;
     } else { 
         lampada.src = "./img/lampadaDesligada.png";
         atualizarTextoBtnLigaDesliga(); 
@@ -47,8 +50,18 @@ function atualizarTextoBtnLigaDesliga(){
     if(lampada.src.indexOf("Desligada") > -1){
         textoBtnLigaDesliga.textContent = "Liga";
     } else if (lampada.src.indexOf("Quebrada") > -1){
-        textoBtnLigaDesliga.textContent = "Trocar Lâmpada!";
+        textoBtnLigaDesliga.textContent = "Trocar Lâmpada!";        
     } else {
         textoBtnLigaDesliga.textContent = "Desliga";
+    }
+}
+
+function trocarLampada(){
+    if(lampada.src.indexOf("Quebrada") > -1){
+        if(textoBtnLigaDesliga.textContent.indexOf("Trocar") > -1){
+           lampada.src = "./img/lampadaDesligada.png";
+           textoBtnLigaDesliga.textContent = "Liga";
+        }
+        
     }
 }
