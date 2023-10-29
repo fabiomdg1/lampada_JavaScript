@@ -7,6 +7,7 @@ btnDesligar.addEventListener("click", desligarLampada);
 lampada.addEventListener("mouseover", ligarLampada);
 lampada.addEventListener("mouseleave", desligarLampada);
 lampada.addEventListener("dblclick", quebrarLampada);
+btnLigaDesliga.addEventListener("click", ligaDesliga);
 
 function ligarLampada(){
     if(!isLampadaQuebrada()){
@@ -26,4 +27,16 @@ function quebrarLampada(){
 
 function isLampadaQuebrada(){
     return lampada.src.indexOf("Quebrada") > -1;
+}
+
+function ligaDesliga(){
+    if(!isLampadaQuebrada()){
+        if(lampada.src.indexOf("Desligada") > - 1){
+            console.log("teste");
+            ligarLampada();
+        } else {
+            console.log("teste2");
+            desligarLampada();
+        }
+    }    
 }
