@@ -36,7 +36,7 @@ function ligaDesliga(){
     if(lampada.src.indexOf("Desliga") > -1){
         lampada.src = "./img/lampadaLigada.png"
         atualizarTextoBtnLigaDesliga(); 
-    } else {
+    } else { 
         lampada.src = "./img/lampadaDesligada.png";
         atualizarTextoBtnLigaDesliga(); 
     }
